@@ -8,5 +8,10 @@
   template:
     src: default.j2
     dest: /etc/nginx/sites-available/default
-  notify:
-    - Reload Nginx
+#  notify:
+#    - Reload Nginx
+
+- name: Restart nginx
+  service:
+    name: nginx
+    state: restarted

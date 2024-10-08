@@ -12,6 +12,8 @@ RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/s
 COPY test.pub /home/ubuntu/.ssh/authorized_keys
 RUN mkdir /var/run/sshd
 
+RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+
 EXPOSE 22
 
 CMD ["/usr/sbin/sshd", "-D"]
