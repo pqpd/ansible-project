@@ -1,0 +1,12 @@
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Configure Nginx vhost
+  template:
+    src: default.j2
+    dest: /etc/nginx/sites-available/default
+  notify:
+    - Reload Nginx

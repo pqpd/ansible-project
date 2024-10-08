@@ -1,0 +1,18 @@
+# users.yml
+users:
+  - name: "user1"
+    shell: "/bin/bash"
+    state: "absent"
+    ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAr..."
+    password: "hashed_password_here"
+    groups:
+      - "sudo"
+      - "custom_group5"
+
+  - name: "user2"
+    shell: "/bin/zsh"
+    state: "present"
+    ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAr..."
+    password: "hashed_password_here"
+    groups:
+      - "custom_group2"

@@ -1,0 +1,6 @@
+- name: Install Zsh
+  apt:
+    name: zsh
+    state: present
+  when: item.shell == '/bin/zsh'
+  loop: "{{ users }}"

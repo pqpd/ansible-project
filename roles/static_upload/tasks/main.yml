@@ -1,0 +1,13 @@
+---
+- name: Create destination directory
+  file:
+    path: /var/www/html/images/
+    state: directory
+    mode: '0755'
+
+- name: Copy static files to server
+  copy:
+    src: ./static/
+    dest: /var/www/html/images/
+  notify:
+    - Reload Nginx
