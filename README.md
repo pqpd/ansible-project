@@ -1,5 +1,5 @@
 Порядок запуска:
-1) Создать test.key (private key) для inventory.ini и test.pub (public key) для Dockerfile, в корневой папке (у меня они в .gitignore)
+1) Создать test.key (private key) для inventory.ini и test.pub (public key) для Dockerfile, в корневой папке (у меня они в .dockerignore)
 2) docker compose up -d
 3) ansible-playbook playbook.yml
 4) Так как у контейнера запущен CMD ["/usr/sbin/sshd", "-D"], то когда ssh перезапускается, чтобы применить настройки, контейнер падает, и от этого никак не избавиться (не уверен), поэтому повторяем 2 и 3 шаг
