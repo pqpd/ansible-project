@@ -10,8 +10,3 @@
     dest: /etc/nginx/sites-available/default
 #  notify:
 #    - Reload Nginx
-
-- name: Restart nginx
-  service:
-    name: nginx
-    state: restarted
