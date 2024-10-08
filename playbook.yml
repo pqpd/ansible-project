@@ -1,0 +1,12 @@
+- hosts: all
+  become: true
+  vars_files:
+    - vars.yml
+
+  roles:
+    - user_managment
+    - zsh_install
+    - ssh_config
+    - package_install
+    - nginx_setup
+    - static_upload

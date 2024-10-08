@@ -1,0 +1,23 @@
+---
+- name: Ensure groups exist
+  ansible.builtin.group:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ users | map(attribute='groups') | list | flatten }}"
+
+- name: Ensure users are present or absent
+  user:
+    name: "{{ item.name }}"
+    shell: "{{ item.shell }}"
+    state: "{{ item.state }}"
+    password: "{{ item.password | password_hash('sha512') }}"
+    groups: "{{ item.groups | join(',') }}"
+  loop: "{{ users }}"
+
+- name: Add SSH key for user
+  ansible.posix.authorized_key:
+    user: "{{ item.name }}"
+    state: present
+    key: "{{ item.ssh_key }}"
+  loop: "{{ users }}"
+  when: item.state == "present"

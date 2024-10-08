@@ -1,0 +1,12 @@
+- name: Configure SSH settings
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^{{ item.key }}'
+    line: '{{ item.key }} {{ item.value }}'
+  loop:
+    - { key: 'PermitRootLogin', value: 'no' }
+    - { key: 'PermitEmptyPasswords', value: 'no' }
+    - { key: 'LogLevel', value: 'VERBOSE' }
+    - { key: 'X11Forwarding', value: 'no' }
+  notify:
+    - Restart SSH
