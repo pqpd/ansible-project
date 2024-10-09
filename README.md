@@ -3,6 +3,7 @@
 - python3.12 + passlib (можете изменить на свою версию в inventory.ini)
 - ansible
 - docker
+- git (не обязательно)
 
 Порядок запуска:
 1) Создать test.key (private key) для inventory.ini и test.pub (public key) для Dockerfile, в корневой папке (у меня они в .gitignore)
