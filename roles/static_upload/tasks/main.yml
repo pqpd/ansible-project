@@ -9,10 +9,6 @@
   copy:
     src: ./static/
     dest: /var/www/html/images/
-#  notify:
-#    - Reload Nginx
+  notify:
+    - Reload Nginx
 
-- name: Restart nginx
-  service:
-    name: nginx
-    state: restarted
