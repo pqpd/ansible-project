@@ -1,3 +1,6 @@
+Предварительные требования:
+linux или macos, python3.12 (+passlib), ansible, docker
+
 Порядок запуска:
 1) Создать test.key (private key) для inventory.ini и test.pub (public key) для Dockerfile, в корневой папке (у меня они в .gitignore)
 2) docker compose up -d
