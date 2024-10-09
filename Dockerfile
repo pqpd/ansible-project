@@ -13,6 +13,9 @@ RUN mkdir /var/run/sshd
 
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-EXPOSE 22
+COPY start_services.sh /usr/local/bin/start_services.sh
+RUN chmod +x /usr/local/bin/start_services.sh
 
-CMD ["/usr/sbin/sshd", "-D"]
+EXPOSE 22 8080
+
+CMD ["/usr/local/bin/start_services.sh"]
